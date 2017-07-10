@@ -16,13 +16,13 @@
         name: 'command',
         fieldLabel: 'Command',
         data: [
-            ['project','project'],
-            ['new-project','new-project'],
-            ['new-app','new-app'],
-            ['check status','check status'],
-            ['delete project','delete project'],
-            ['delete app','delete app'],
-            ['Custom command','Custom command']
+            ['project',_('project')],
+            ['new-project',_('new-project')],
+            ['new-app',_('new-app')],
+            ['check status',_('check status')],
+            ['delete project',_('delete project')],
+            ['delete app',_('delete app')],
+            ['Custom command',_('Custom command')]
         ],
         value: params.data.command || 'project',
         allowBlank: false,

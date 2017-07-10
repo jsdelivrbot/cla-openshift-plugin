@@ -4,19 +4,19 @@
         name: 'server',
         value: params.rec.server || '',
         class: 'generic_server',
-        fieldLabel: 'Server',
+        fieldLabel: _('Server'),
         allowBlank: false
     });
 
     var ocClusterServerTextField = Cla.ui.textField({
         name: 'ocClusterServer',
-        fieldLabel: 'Openshift Cluster URL',
+        fieldLabel: _('Openshift Cluster URL'),
         allowBlank: false
     });
 
     var loginCheckBox = Cla.ui.checkBox({
         name: 'tokenLogin',
-        fieldLabel: 'Token login?',
+        fieldLabel: _('Token login?'),
         checked: params.rec.tokenLogin || false
     });
 
@@ -41,26 +41,26 @@
 
     var userTexfield = Cla.ui.textField({
         name: 'userName',
-        fieldLabel: 'Username',
+        fieldLabel: _('Username'),
         allowBlank: false,
         hidden: !(loginCheckBox.checked != 1)
     });
     var passTextfield = Cla.ui.textField({
         name: 'password',
-        fieldLabel: 'Password',
+        fieldLabel: _('Password'),
         allowBlank: false,
         inputType: 'password'
     });
     var tokenTextField = Cla.ui.textField({
         name: 'authToken',
-        fieldLabel: 'Authentication Token',
+        fieldLabel: _('Authentication Token'),
         allowBlank: false,
         hidden: !(loginCheckBox.checked == 1)
     });
     var mainCommandTextField = Cla.ui.textField({
         name: 'mainCommand',
         value: params.rec.mainCommand || "oc",
-        fieldLabel: 'Main command ("oc" by default)',
+        fieldLabel: _('Main command ("oc" by default)'),
         allowBlank: false
     });
 

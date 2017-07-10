@@ -4,18 +4,18 @@
         name: 'server',
         value: params.rec.server || '',
         class: 'OpenshiftServer',
-        fieldLabel: 'Server',
+        fieldLabel: _('Server'),
         allowBlank: false
     });
 
     var projectNameTextField = Cla.ui.textField({
         name: 'appProject',
-        fieldLabel: 'Project Name',
+        fieldLabel: _('Project Name'),
         allowBlank: false
     });
     var appNameTextField = Cla.ui.textField({
         name: 'appName',
-        fieldLabel: 'Application name',
+        fieldLabel: _('Application name'),
         allowBlank: false
     });
 

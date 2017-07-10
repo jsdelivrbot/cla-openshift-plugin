@@ -1,0 +1,148 @@
+#: init/openshift.js
+msgid "Openshift Task"
+msgstr "Tarea de Openshift"
+
+#: init/openshift.js
+msgid "Server CI doesn't exist"
+msgstr "El CI de servidor no existe"
+
+#: init/openshift.js
+msgid "Application CI doesn't exist"
+msgstr "El CI de aplicación no existe"
+
+#: init/openshift.js
+msgid "Openshift "
+msgstr "Openshift "
+
+#: init/openshift.js
+msgid " task finished"
+msgstr " tarea finalizada"
+
+#: init/openshift.js
+msgid "Warning "
+msgstr "Atanción, aplicación "
+
+#: init/openshift.js
+msgid " application already exist"
+msgstr " ya existe."
+
+#: init/openshift.js
+msgid "Create new application failed "
+msgstr "Falló al crear la aplicación "
+
+#: init/openshift.js
+msgid "Done, application "
+msgstr "Hecho, aplicación "
+
+#: init/openshift.js
+msgid " created"
+msgstr " creada"
+
+#: init/openshift.js
+msgid " does not exist"
+msgstr " no existe"
+
+#: init/openshift.js
+msgid "Delete project failed "
+msgstr "Fallo al borrar proyecto "
+
+#: init/openshift.js
+msgid "Done, project "
+msgstr "Hecho, proyecto "
+
+#: init/openshift.js
+msgid " deleted"
+msgstr " borrado"
+
+#: init/openshift.js
+msgid " not found"
+msgstr " no encontrado"
+
+#: init/openshift.js
+msgid "Delete application failed "
+msgstr "Borrar aplicación ha fallado "
+
+#: init/openshift.js
+msgid " project already exist"
+msgstr " proyecto ya existe"
+
+#: init/openshift.js
+msgid "Create new project failed "
+msgstr "Fallo al crear un nuevo proyecto "
+
+#: public/form/openshift-form.js public/form/openshiftAppCI-form.js
+#: public/form/openshiftCI-form.js
+msgid "Server"
+msgstr "Servidor"
+
+#: public/form/openshift-form.js
+msgid "project"
+msgstr "Proyecto"
+
+#: public/form/openshift-form.js
+msgid "new-project"
+msgstr "Nuevo proyecto"
+
+#: public/form/openshift-form.js
+msgid "new-app"
+msgstr "Nueva aplicación"
+
+#: public/form/openshift-form.js
+msgid "check status"
+msgstr "Comprobar estado"
+
+#: public/form/openshift-form.js
+msgid "delete project"
+msgstr "Borrar proyecto"
+
+#: public/form/openshift-form.js
+msgid "delete app"
+msgstr "Borrar aplicación"
+
+#: public/form/openshift-form.js
+msgid "Custom command"
+msgstr "Comando personalizado"
+
+#: public/form/openshift-form.js public/form/openshiftAppCI-form.js
+msgid "Application name"
+msgstr "Nombre de aplicación"
+
+#: public/form/openshift-form.js
+msgid "Project name"
+msgstr "Nombre de proyecto"
+
+#: public/form/openshift-form.js
+msgid "Select application"
+msgstr "Selecciona la aplicación"
+
+#: public/form/openshift-form.js
+msgid "Additional options"
+msgstr "Opciones adicionales"
+
+#: public/form/openshiftAppCI-form.js
+msgid "Project Name"
+msgstr "Nombre del proyecto"
+
+#: public/form/openshiftCI-form.js
+msgid "Openshift Cluster URL"
+msgstr "URL del Cluster de Openshift"
+
+#: public/form/openshiftCI-form.js
+msgid "Token login?"
+msgstr "Acceso por Token?"
+
+#: public/form/openshiftCI-form.js
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: public/form/openshiftCI-form.js
+msgid "Password"
+msgstr "Contraseña"
+
+#: public/form/openshiftCI-form.js
+msgid "Authentication Token"
+msgstr "Token de autentificación"
+
+#: public/form/openshiftCI-form.js
+msgid "Main command (\"oc\" by default)"
+msgstr "Comando principal (\"oc\" por defecto)"

@@ -1,7 +1,7 @@
 var reg = require('cla/reg');
 
 reg.register('service.openshift.command', {
-    name: 'Openshift Task',
+    name: _('Openshift Task'),
     icon: '/plugin/cla-openshift-plugin/icon/openshift.svg',
     form: '/plugin/cla-openshift-plugin/form/openshift-form.js',
 
@@ -26,7 +26,7 @@ reg.register('service.openshift.command', {
                 mid: server + ""
             });
             if (!ocServer) {
-                log.fatal("Server CI doesn't exist");
+                log.fatal(_("Server CI doesn't exist"));
             }
             mainCommand = ocServer.mainCommand || "oc ";
         } else {
@@ -34,7 +34,7 @@ reg.register('service.openshift.command', {
                 mid: appMid + ""
             });
             if (!appCi) {
-                log.fatal("Application CI doesn't exist");
+                log.fatal(_("Application CI doesn't exist"));
             }
         }
         var additionalOptions = params.commandOptions || [];
@@ -53,7 +53,7 @@ reg.register('service.openshift.command', {
                 mid: appCi.server + ''
             });
             if (!ocServer) {
-                log.fatal("Server CI doesn't exist");
+                log.fatal(_("Server CI doesn't exist"));
             }
             project = appCi.appProject;
             fullCommand = ocServer.mainCommand + " describe dc/" + appCi.appName;
@@ -69,7 +69,7 @@ reg.register('service.openshift.command', {
                 mid: appCi.server + ''
             });
             if (!ocServer) {
-                log.fatal("Server CI doesn't exist");
+                log.fatal(_("Server CI doesn't exist"));
             }
             project = appCi.appProject;
             fullCommand = ocServer.mainCommand + " delete all -l app='" + appCi.appName + "'";
@@ -82,7 +82,7 @@ reg.register('service.openshift.command', {
 
         function remoteCommand(params, command, server, errors) {
             var output = reg.launch('service.scripting.remote', {
-                name: 'Openshift Task',
+                name: _('Openshift Task'),
                 config: {
                     errors: errors,
                     server: server.server,
@@ -119,7 +119,7 @@ reg.register('service.openshift.command', {
             }
             var parsedSubString = parsedResponse.substring(0, parseIndex);
             response = parsedSubString;
-            log.info("Openshift " + commandOption + " task finished", response);
+            log.info(_("Openshift ") + commandOption + _(" task finished"), response);
         } else if (commandOption == "new-app") {
             var projectChange = remoteCommand(params, "oc project " + projectName, ocServer);
             commandLaunch = remoteCommand(params, fullCommand, ocServer, errors);
@@ -127,18 +127,18 @@ reg.register('service.openshift.command', {
             if ((commandLaunch.rc != 0 && params.errors != "custom") || (params.errors == "custom" && params.rc_ok != commandLaunch.rc)) {
                 parsedResponse = commandLaunch.output.match(/error: services ".*" already exists/);
                 if (parsedResponse != null) {
-                    log.warn("Warning " + params.appNameNew + " application already exist", commandLaunch.output);
+                    log.warn(_("Warning ") + params.appNameNew + _(" application already exist"), commandLaunch.output);
                 } else {
                     if (params.errors == "fail" || (params.errors == "custom" && params.rc_error != commandLaunch.rc)) {
-                        log.fatal("Create new application failed ", commandLaunch.output);
+                        log.fatal(_("Create new application failed "), commandLaunch.output);
                     } else if (params.errors == "warn" || (params.errors == "custom" && params.rc_warn != commandLaunch.rc)) {
-                        log.warn("Create new application failed ", commandLaunch.output);
+                        log.warn(_("Create new application failed "), commandLaunch.output);
                     } else {
-                        log.error("Create new application failed ", commandLaunch.output);
+                        log.error(_("Create new application failed "), commandLaunch.output);
                     }
                 }
             } else {
-                log.info("Done, application " + params.appNameNew + " created", commandLaunch.output);
+                log.info(_("Done, application ") + params.appNameNew + _(" created"), commandLaunch.output);
             }
 
             var OpenshiftCi = ci.getClass('OpenshiftApp');
@@ -152,7 +152,7 @@ reg.register('service.openshift.command', {
             response = {};
             response.output = commandLaunch.output;
             response.mid = appMid;
-            log.info("Openshift " + commandOption + " task finished", response);
+            log.info(_("Openshift ") + commandOption + _(" task finished"), response);
         } else if (commandOption == "delete project") {
             commandLaunch = remoteCommand(params, fullCommand, ocServer, errors);
             response = commandLaunch.output;
@@ -160,21 +160,21 @@ reg.register('service.openshift.command', {
             if ((commandLaunch.rc != 0 && params.errors != "custom") || (params.errors == "custom" && params.rc_ok != commandLaunch.rc)) {
                 parsedResponse = response.match(/cannot delete projects in project ".*"/);
                 if (parsedResponse != null) {
-                    log.warn("Warning " + project + " does not exist", response);
+                    log.warn(_("Warning ") + project + _(" does not exist"), response);
                 } else {
                     if (params.errors == "fail" || (params.errors == "custom" && params.rc_error != commandLaunch.rc)) {
-                        log.fatal("Delete project failed ", response);
+                        log.fatal(_("Delete project failed "), response);
                     } else if (params.errors == "warn" || (params.errors == "custom" && params.rc_warn != commandLaunch.rc)) {
-                        log.warn("Delete project failed ", response);
+                        log.warn(_("Delete project failed "), response);
                     } else {
-                        log.error("Delete project failed ", response);
+                        log.error(_("Delete project failed "), response);
                     }
                 }
             } else {
-                log.info("Done, project " + projectName + " deleted", response);
+                log.info(_("Done, project ") + projectName + _(" deleted"), response);
             }
 
-            log.info("Openshift " + commandOption + " task finished", response);
+            log.info(_("Openshift ") + commandOption + _(" task finished"), response);
         } else if (commandOption == "delete app") {
             remoteCommand(params, "oc project " + project, ocServer, params.errors);
             commandLaunch = remoteCommand(params, fullCommand, ocServer, errors);
@@ -185,24 +185,24 @@ reg.register('service.openshift.command', {
             if ((commandLaunch.rc != 0 && params.errors != "custom") || (params.errors == "custom" && params.rc_ok != commandLaunch.rc)) {
 
                 if (parsedResponse != null) {
-                    log.warn("Warning " + appCi.appName + " not found", response);
+                    log.warn(_("Warning ") + appCi.appName + __(" not found"), response);
                 } else {
                     if (params.errors == "fail" || (params.errors == "custom" && params.rc_error != commandLaunch.rc)) {
-                        log.fatal("Delete application failed ", response);
+                        log.fatal(_("Delete application failed "), response);
                     } else if (params.errors == "warn" || (params.errors == "custom" && params.rc_warn != commandLaunch.rc)) {
-                        log.warn("Delete application failed ", response);
+                        log.warn(_("Delete application failed "), response);
                     } else {
-                        log.error("Delete application failed ", response);
+                        log.error(_("Delete application failed "), response);
                     }
                 }
             } else {
-                log.info("Done, application " + appCi.appName + " deleted", response);
+                log.info(_("Done, application ") + appCi.appName + _(" deleted"), response);
             }
 
             appCi = ci.load(appMid + '');
             appCi.active(0);
             appCi.save();
-            log.info("Openshift " + commandOption + " task finished", response);
+            log.info(_("Openshift ") + commandOption + _(" task finished"), response);
 
         } else if (commandOption == "new-project") {
 
@@ -212,27 +212,27 @@ reg.register('service.openshift.command', {
             if ((commandLaunch.rc != 0 && params.errors != "custom") || (params.errors == "custom" && params.rc_ok != commandLaunch.rc)) {
                 parsedResponse = response.match(/Error from server: project ".*" already exists/);
                 if (parsedResponse != null) {
-                    log.warn("Warning " + projectName + " project already exist", response);
+                    log.warn(_("Warning ") + projectName + _(" project already exist"), response);
                 } else {
                     if (params.errors == "fail" || (params.errors == "custom" && params.rc_error != commandLaunch.rc)) {
-                        log.fatal("Create new project failed ", response);
+                        log.fatal(_("Create new project failed "), response);
                     } else if (params.errors == "warn" || (params.errors == "custom" && params.rc_warn != commandLaunch.rc)) {
-                        log.warn("Create new project failed ", response);
+                        log.warn(_("Create new project failed "), response);
                     } else {
-                        log.error("Create new project failed ", response);
+                        log.error(_("Create new project failed "), response);
                     }
                 }
             } else {
-                log.info("Done, project " + projectName + " created", response);
+                log.info(_("Done, project ") + projectName + _(" created"), response);
             }
 
-            log.info("Openshift " + commandOption + " task finished", response);
+            log.info(_("Openshift ") + commandOption + _(" task finished"), response);
 
         } else {
 
             commandLaunch = remoteCommand(params, fullCommand, ocServer);
             response = commandLaunch.output;
-            log.info("Openshift " + commandOption + " task finished", response);
+            log.info(_("Openshift ") + commandOption + _(" task finished"), response);
         }
 
         return response;
