@@ -3,7 +3,7 @@
     var server = Cla.ui.ciCombo({
         name: 'server',
         value: params.rec.server || '',
-        class: 'generic_server',
+        role: 'Server',
         fieldLabel: _('Server'),
         allowBlank: false
     });
