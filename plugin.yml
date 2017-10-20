@@ -1,0 +1,9 @@
+name: Clarive Openshift Plugin
+description: The Openshift plugin will allow you to use the Openshift command-line interface (CLI) from a Clarive instance.
+version: 1.0
+icon: https://github.com/clarive/cla-openshift-plugin/public/icon/openshift.svg
+url: https://github.com/clarive/cla-openshift-plugin
+requires:
+  - clarive_version: 6.8 <= version
+dependencies:
+  - cla-openshift-plugin
