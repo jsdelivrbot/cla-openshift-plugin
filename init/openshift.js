@@ -4,7 +4,29 @@ reg.register('service.openshift.command', {
     name: _('Openshift Task'),
     icon: '/plugin/cla-openshift-plugin/icon/openshift.svg',
     form: '/plugin/cla-openshift-plugin/form/openshift-form.js',
-
+    rulebook: {
+        moniker: 'openshift_task',
+        description: _('Executes openshift tasks'),
+        required: ['server', 'command'],
+        allow: ['server', 'command', 'app_name_new', 'project_name', 'app_name',
+            'command_options', 'errors'
+        ],
+        mapper: {
+            'app_name_new': 'appNameNew',
+            'project_name': 'projectName',
+            'app_name': 'appName',
+            'command_options': 'commandOptions'
+        },
+        examples: [{
+            openshift_task: {
+                command: 'new-app',
+                server: 'openshift_server',
+                project_name: "test",
+                app_name: "test-app",
+                command_options: "openshift/deployment-example"
+            }
+        }]
+    },
     handler: function(ctx, params) {
 
         var ci = require("cla/ci");

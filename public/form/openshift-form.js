@@ -22,7 +22,7 @@
             ['check status',_('check status')],
             ['delete project',_('delete project')],
             ['delete app',_('delete app')],
-            ['Custom command',_('Custom command')]
+            ['custom',_('Custom command')]
         ],
         value: params.data.command || 'project',
         allowBlank: false,

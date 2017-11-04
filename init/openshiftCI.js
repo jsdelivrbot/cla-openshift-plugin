@@ -5,7 +5,7 @@ ci.createRole("Openshift");
 ci.createClass("OpenshiftServer", {
     form: '/plugin/cla-openshift-plugin/form/openshiftCI-form.js',
     icon: '/plugin/cla-openshift-plugin/icon/openshift.svg',
-    roles: ["Openshift"],
+    roles: ["Openshift", "ClariveSE"],
     has: {
         server: {
             is: "rw",
@@ -49,7 +49,7 @@ ci.createClass("OpenshiftServer", {
 ci.createClass("OpenshiftApp", {
     form: '/plugin/cla-openshift-plugin/form/openshiftAppCI-form.js',
     icon: '/plugin/cla-openshift-plugin/icon/openshift.svg',
-    roles: ["Openshift"],
+    roles: ["Openshift", "ClariveSE"],
     has: {
         server: {
             is: "rw",
